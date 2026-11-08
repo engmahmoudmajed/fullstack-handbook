@@ -10,33 +10,234 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MarketingRouteRouteImport } from './routes/_marketing/route'
+import { Route as DashboardRouteRouteImport } from './routes/dashboard/route'
+import { Route as MarketingAboutRouteImport } from './routes/_marketing/about'
+import { Route as MarketingPricingRouteImport } from './routes/_marketing/pricing'
+import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
+import { Route as DashboardProfileRouteImport } from './routes/dashboard/profile'
+import { Route as DashboardSettingsRouteImport } from './routes/dashboard/settings'
+import { Route as FilesIndexRouteImport } from './routes/files/index'
+import { Route as FilesSplatRouteImport } from './routes/files/$'
+import { Route as InvoicesIndexRouteImport } from './routes/invoices/index'
+import { Route as InvoicesrouteRouteImport } from './routes/invoices/ route'
+import { Route as InvoicesInvoiceIdRouteImport } from './routes/invoices/$invoiceId'
+import { Route as PostsChar123CategoryChar125RouteImport } from './routes/posts/{-$category}'
+import { Route as TodosIndexRouteImport } from './routes/todos/index'
+import { Route as TodosTodoidRouteImport } from './routes/todos/$todoid'
+import { Route as InvoicesInvoiceIdPrintRouteImport } from './routes/invoices_/$invoiceId/print'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MarketingRouteRoute = MarketingRouteRouteImport.update({
+  id: '/_marketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRouteRoute = DashboardRouteRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingAboutRoute = MarketingAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => MarketingRouteRoute,
+} as any)
+const MarketingPricingRoute = MarketingPricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => MarketingRouteRoute,
+} as any)
+const DashboardIndexRoute = DashboardIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardProfileRoute = DashboardProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const FilesIndexRoute = FilesIndexRouteImport.update({
+  id: '/files/',
+  path: '/files/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FilesSplatRoute = FilesSplatRouteImport.update({
+  id: '/files/$',
+  path: '/files/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvoicesIndexRoute = InvoicesIndexRouteImport.update({
+  id: '/invoices/',
+  path: '/invoices/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvoicesrouteRoute = InvoicesrouteRouteImport.update({
+  id: '/invoices/ route',
+  path: '/invoices/ route',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvoicesInvoiceIdRoute = InvoicesInvoiceIdRouteImport.update({
+  id: '/invoices/$invoiceId',
+  path: '/invoices/$invoiceId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PostsChar123CategoryChar125Route =
+  PostsChar123CategoryChar125RouteImport.update({
+    id: '/posts/{-$category}',
+    path: '/posts/{-$category}',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TodosIndexRoute = TodosIndexRouteImport.update({
+  id: '/todos/',
+  path: '/todos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TodosTodoidRoute = TodosTodoidRouteImport.update({
+  id: '/todos/$todoid',
+  path: '/todos/$todoid',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvoicesInvoiceIdPrintRoute = InvoicesInvoiceIdPrintRouteImport.update({
+  id: '/invoices_/$invoiceId/print',
+  path: '/invoices/$invoiceId/print',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRouteRouteWithChildren
+  '/about': typeof MarketingAboutRoute
+  '/pricing': typeof MarketingPricingRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
+  '/files/$': typeof FilesSplatRoute
+  '/invoices/ route': typeof InvoicesrouteRoute
+  '/invoices/$invoiceId': typeof InvoicesInvoiceIdRoute
+  '/posts/{-$category}': typeof PostsChar123CategoryChar125Route
+  '/todos/$todoid': typeof TodosTodoidRoute
+  '/dashboard/': typeof DashboardIndexRoute
+  '/files/': typeof FilesIndexRoute
+  '/invoices/': typeof InvoicesIndexRoute
+  '/todos/': typeof TodosIndexRoute
+  '/invoices/$invoiceId/print': typeof InvoicesInvoiceIdPrintRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof MarketingAboutRoute
+  '/pricing': typeof MarketingPricingRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
+  '/files/$': typeof FilesSplatRoute
+  '/invoices/ route': typeof InvoicesrouteRoute
+  '/invoices/$invoiceId': typeof InvoicesInvoiceIdRoute
+  '/posts/{-$category}': typeof PostsChar123CategoryChar125Route
+  '/todos/$todoid': typeof TodosTodoidRoute
+  '/dashboard': typeof DashboardIndexRoute
+  '/files': typeof FilesIndexRoute
+  '/invoices': typeof InvoicesIndexRoute
+  '/todos': typeof TodosIndexRoute
+  '/invoices/$invoiceId/print': typeof InvoicesInvoiceIdPrintRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_marketing': typeof MarketingRouteRouteWithChildren
+  '/dashboard': typeof DashboardRouteRouteWithChildren
+  '/_marketing/about': typeof MarketingAboutRoute
+  '/_marketing/pricing': typeof MarketingPricingRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
+  '/files/$': typeof FilesSplatRoute
+  '/invoices/ route': typeof InvoicesrouteRoute
+  '/invoices/$invoiceId': typeof InvoicesInvoiceIdRoute
+  '/posts/{-$category}': typeof PostsChar123CategoryChar125Route
+  '/todos/$todoid': typeof TodosTodoidRoute
+  '/dashboard/': typeof DashboardIndexRoute
+  '/files/': typeof FilesIndexRoute
+  '/invoices/': typeof InvoicesIndexRoute
+  '/todos/': typeof TodosIndexRoute
+  '/invoices_/$invoiceId/print': typeof InvoicesInvoiceIdPrintRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/about'
+    | '/pricing'
+    | '/dashboard/profile'
+    | '/dashboard/settings'
+    | '/files/$'
+    | '/invoices/ route'
+    | '/invoices/$invoiceId'
+    | '/posts/{-$category}'
+    | '/todos/$todoid'
+    | '/dashboard/'
+    | '/files/'
+    | '/invoices/'
+    | '/todos/'
+    | '/invoices/$invoiceId/print'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/pricing'
+    | '/dashboard/profile'
+    | '/dashboard/settings'
+    | '/files/$'
+    | '/invoices/ route'
+    | '/invoices/$invoiceId'
+    | '/posts/{-$category}'
+    | '/todos/$todoid'
+    | '/dashboard'
+    | '/files'
+    | '/invoices'
+    | '/todos'
+    | '/invoices/$invoiceId/print'
+  id:
+    | '__root__'
+    | '/'
+    | '/_marketing'
+    | '/dashboard'
+    | '/_marketing/about'
+    | '/_marketing/pricing'
+    | '/dashboard/profile'
+    | '/dashboard/settings'
+    | '/files/$'
+    | '/invoices/ route'
+    | '/invoices/$invoiceId'
+    | '/posts/{-$category}'
+    | '/todos/$todoid'
+    | '/dashboard/'
+    | '/files/'
+    | '/invoices/'
+    | '/todos/'
+    | '/invoices_/$invoiceId/print'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  MarketingRouteRoute: typeof MarketingRouteRouteWithChildren
+  DashboardRouteRoute: typeof DashboardRouteRouteWithChildren
+  FilesSplatRoute: typeof FilesSplatRoute
+  InvoicesrouteRoute: typeof InvoicesrouteRoute
+  InvoicesInvoiceIdRoute: typeof InvoicesInvoiceIdRoute
+  PostsChar123CategoryChar125Route: typeof PostsChar123CategoryChar125Route
+  TodosTodoidRoute: typeof TodosTodoidRoute
+  FilesIndexRoute: typeof FilesIndexRoute
+  InvoicesIndexRoute: typeof InvoicesIndexRoute
+  TodosIndexRoute: typeof TodosIndexRoute
+  InvoicesInvoiceIdPrintRoute: typeof InvoicesInvoiceIdPrintRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +249,164 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_marketing': {
+      id: '/_marketing'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof MarketingRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_marketing/about': {
+      id: '/_marketing/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof MarketingAboutRouteImport
+      parentRoute: typeof MarketingRouteRoute
+    }
+    '/_marketing/pricing': {
+      id: '/_marketing/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof MarketingPricingRouteImport
+      parentRoute: typeof MarketingRouteRoute
+    }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/profile': {
+      id: '/dashboard/profile'
+      path: '/profile'
+      fullPath: '/dashboard/profile'
+      preLoaderRoute: typeof DashboardProfileRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/settings': {
+      id: '/dashboard/settings'
+      path: '/settings'
+      fullPath: '/dashboard/settings'
+      preLoaderRoute: typeof DashboardSettingsRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/files/': {
+      id: '/files/'
+      path: '/files'
+      fullPath: '/files/'
+      preLoaderRoute: typeof FilesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/files/$': {
+      id: '/files/$'
+      path: '/files/$'
+      fullPath: '/files/$'
+      preLoaderRoute: typeof FilesSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invoices/': {
+      id: '/invoices/'
+      path: '/invoices'
+      fullPath: '/invoices/'
+      preLoaderRoute: typeof InvoicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invoices/ route': {
+      id: '/invoices/ route'
+      path: '/invoices/ route'
+      fullPath: '/invoices/ route'
+      preLoaderRoute: typeof InvoicesrouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invoices/$invoiceId': {
+      id: '/invoices/$invoiceId'
+      path: '/invoices/$invoiceId'
+      fullPath: '/invoices/$invoiceId'
+      preLoaderRoute: typeof InvoicesInvoiceIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/posts/{-$category}': {
+      id: '/posts/{-$category}'
+      path: '/posts/{-$category}'
+      fullPath: '/posts/{-$category}'
+      preLoaderRoute: typeof PostsChar123CategoryChar125RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/todos/': {
+      id: '/todos/'
+      path: '/todos'
+      fullPath: '/todos/'
+      preLoaderRoute: typeof TodosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/todos/$todoid': {
+      id: '/todos/$todoid'
+      path: '/todos/$todoid'
+      fullPath: '/todos/$todoid'
+      preLoaderRoute: typeof TodosTodoidRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invoices_/$invoiceId/print': {
+      id: '/invoices_/$invoiceId/print'
+      path: '/invoices/$invoiceId/print'
+      fullPath: '/invoices/$invoiceId/print'
+      preLoaderRoute: typeof InvoicesInvoiceIdPrintRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface MarketingRouteRouteChildren {
+  MarketingAboutRoute: typeof MarketingAboutRoute
+  MarketingPricingRoute: typeof MarketingPricingRoute
+}
+
+const MarketingRouteRouteChildren: MarketingRouteRouteChildren = {
+  MarketingAboutRoute: MarketingAboutRoute,
+  MarketingPricingRoute: MarketingPricingRoute,
+}
+
+const MarketingRouteRouteWithChildren = MarketingRouteRoute._addFileChildren(
+  MarketingRouteRouteChildren,
+)
+
+interface DashboardRouteRouteChildren {
+  DashboardProfileRoute: typeof DashboardProfileRoute
+  DashboardSettingsRoute: typeof DashboardSettingsRoute
+  DashboardIndexRoute: typeof DashboardIndexRoute
+}
+
+const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
+  DashboardProfileRoute: DashboardProfileRoute,
+  DashboardSettingsRoute: DashboardSettingsRoute,
+  DashboardIndexRoute: DashboardIndexRoute,
+}
+
+const DashboardRouteRouteWithChildren = DashboardRouteRoute._addFileChildren(
+  DashboardRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  MarketingRouteRoute: MarketingRouteRouteWithChildren,
+  DashboardRouteRoute: DashboardRouteRouteWithChildren,
+  FilesSplatRoute: FilesSplatRoute,
+  InvoicesrouteRoute: InvoicesrouteRoute,
+  InvoicesInvoiceIdRoute: InvoicesInvoiceIdRoute,
+  PostsChar123CategoryChar125Route: PostsChar123CategoryChar125Route,
+  TodosTodoidRoute: TodosTodoidRoute,
+  FilesIndexRoute: FilesIndexRoute,
+  InvoicesIndexRoute: InvoicesIndexRoute,
+  TodosIndexRoute: TodosIndexRoute,
+  InvoicesInvoiceIdPrintRoute: InvoicesInvoiceIdPrintRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
