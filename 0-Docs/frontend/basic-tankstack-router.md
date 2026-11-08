@@ -1,7 +1,7 @@
 # Tankstack Router with example 
-**you will find example in folder /tankstack-handbook/tankstack-router**
+**you will find example in folder /tankstack-handbook/tankstack-router/router-basics**
 /tankstack-handbook/tankstack-router
-[Examples folder]()
+[Examples folder](https://github.com/engmahmoudmajed/fullstack-handbook/tree/master/frontend-examples/tankstack-router/router-basics)
 
 ## setup
 **after install there is diffrent way to setup best and easy way is 1**
